@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interior & Exterior Design Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4e7da; /* Sand color background */
+        }
+        header {
+            background-color: #444;
+            color: #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between; /* Aligning items to the left and right */
+            align-items: center; /* Centering vertically */
+            padding: 0 20px; /* Add padding to maintain space */
+        }
+        header h1 {
+            margin: 10px 0;
+            font-size: 2em;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .hero {
+            background-color: #e6e6ff;
+            text-align: center;
+            padding: 80px 20px;
+            color: #333;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+        }
+        .hero a {
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            
+            transition: background-color 0.3s ease;
+        }
+        .hero a:hover {
+            background-color: #0056b3;
+        }
+        header img {
+            height: 40px; /* Reduced size */
+            width: 40px; /* Reduced size */
+            border-radius: 50%; /* Shape changed to circle */
+            overflow: hidden;
+        }
+        .feature-section {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .feature-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .feature-section .features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .feature-section .feature {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .feature-section .feature:hover {
+            transform: translateY(-10px);
+        }
+        .feature-section .feature img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .feature-section .feature h3 {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+        .feature-section .feature p {
+            font-size: 1em;
+            margin: 15px 0;
+        }
+        .feature-section .feature a {
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .feature-section .feature a:hover {
+            background-color: #0056b3;
+        }
+        .purpose-section {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .purpose-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .purpose-section .purposes {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .purpose-section .purpose {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .purpose-section .purpose:hover {
+            transform: translateY(-10px);
+        }
+        .purpose-section .purpose img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .purpose-section .purpose h3 {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+        .purpose-section .purpose p {
+            font-size: 1em;
+            margin: 15px 0;
+        }
+        .purpose-section .purpose a {
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .purpose-section .purpose a:hover {
+            background-color: #0056b3;
+        }
+        .pricing, .contact {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-header {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .modal-body input[type="text"], .modal-body input[type="password"], .modal-body input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        .modal-footer button {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .modal-footer button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DESIGN FUTURA</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a href="profile.html"><img src="C:\Users\HP\Desktop\engineering\sem 4\enp\login.jpg"></a>
+    </nav>
+    </header>
+
+    <section class="hero">
+        
+        <h1>Welcome to Our Platform</h1>
+        <h2>DESIGN FUTURA</h2>
+        <p>Your one-stop destination for stunning interior and exterior designs.</p>
+        <p>Transform your space with our AI-powered design tools and bring your vision to life.</p>
+        
+        <a href="#features">Explore Features</a>
+    </section>
+ 
+
+    <section id="features" class="feature-section">
+        <h2>Our Features</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="C:\Users\HP\Desktop\engineering\sem 4\enp\aitool.jpg" alt="AI Design Tool">
+                <h3>AI Design Tool</h3>
+                <p>Leverage advanced AI to create and visualize your interior and exterior designs effortlessly.</p>
+                <a href="ai-tool.html">Try AI Design Tool</a>
+            </div>
+            <div class="feature">
+                <img src="C:\Users\HP\Desktop\engineering\sem 4\enp\diy.jpg" alt="DIY Tutorials">
+                <h3>DIY Tutorials</h3>
+                <p>Access comprehensive tutorials to help you create stunning designs on your own.</p>
+                <a href="diy-tutorials.html">View DIY Tutorials</a>
+            </div>
+            <div class="feature">
+                <img src="C:\Users\HP\Desktop\engineering\sem 4\enp\catalog.jpg" alt="Furniture Catalog">
+                <h3>Furniture Catalog</h3>
+                <p>Browse our extensive catalog of furniture to find the perfect pieces for your space.</p>
+                <a href="furniture-catalog.html">Browse Furniture Catalog</a>
+            </div>
+            <div class="feature">
+                <img src="C:\Users\HP\Desktop\engineering\sem 4\enp\layout.jpg" alt="Blueprints and Layouts">
+                <h3>Blueprints & Layouts</h3>
+                <p>Get access to professional blueprints and layout designs for your projects.</p>
+                <a href="blueprints-layouts.html">Explore Blueprints & Layouts</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="purpose" class="purpose-section">
+        <h2>Designed For </h2>
+        <div class="purposes">
+            <div class="purpose">
+                <img src="C:\Users\HP\Desktop\engineering\sem 4\enp\user.png" alt="For Customers">
+                <h3> Customers</h3>
+                <p>Discover personalized design solutions to beautify your living spaces.</p>
+                <a href="customers.html">Learn More</a>
+            </div>
+            <div class="purpose">
+                <img src="C:\Users\HP\Desktop\engineering\sem 4\enp\edu.jpg" alt="For Students">
+                <h3> Students</h3>
+                <p>Access educational resources and tools to enhance your architectural skills.</p>
+                <a href="students.html">Learn More</a>
+            </div>
+            <div class="purpose">
+                <img src="C:\Users\HP\Desktop\engineering\sem 4\enp\buis.jpg" alt="For Businesses">
+                <h3>Professional Use</h3>
+                <p>Utilize our platform for professional design projects and commercial spaces.</p>
+                <a href="business.html">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2>Pricing</h2>
+        <p>Choose a plan that fits your needs.</p>
+        <a href="pricing.html">View Pricing</a>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have a question or feedback? Reach out to us!</p>
+        <p>Email: designfutura@gmail.com</p>
+        <p>Phone: 123-456-7890</p>
+    </section>
+
+    <!-- Remaining sections -->
+
+    <footer>
+        <p>&copy; 2024 DESIGN FUTURA. All rights reserved.</p>
+    </footer>
+
+    <!-- Sign In/Sign Up Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">Sign In / Sign Up</div>
+            <div class="modal-body">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <div class="modal-footer">
+                <button id="signInBtn">Sign In</button>
+                <button id="signUpBtn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Open the modal after 20 seconds
+        setTimeout(function() {
+            modal.style.display = "block";
+        }, 10000); // 20 seconds in milliseconds
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
